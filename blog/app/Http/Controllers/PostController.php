@@ -10,4 +10,8 @@ class PostController extends Controller
 	{
 		    return $post->get();//$postの中身を戻り値にする。
 	}
+	public function func(){
+		$post = Post::find(1);
+		return view('posts.index', ["title" => $post]);
+	}
 }
