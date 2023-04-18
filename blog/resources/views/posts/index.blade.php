@@ -10,12 +10,9 @@
 	    @foreach ($post as $post1)
             <h4 class="header1">{{$post1->title}}</h4>
 	    <p class="art1">{{$post1->body}}</p>
-            @endforeach
-        </div>
-        <div>
-            <h4 class="header2">見出し2</h4>
-            <p class="art2">内容</p>
-        </div>
+	    @endforeach
+	</div>
+        {{ $post->links() }}
     </div>
 </body>
 </html>
