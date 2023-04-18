@@ -10,4 +10,8 @@ class PostController extends Controller
 	{
 		    return $post->get();//$postの中身を戻り値にする。
 	}
+	public function func(){
+		$post = Post::latest()->take(10)->paginate(5);
+		return view('posts.index', ["post" => $post]);
+	}
 }
