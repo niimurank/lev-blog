@@ -14,4 +14,9 @@ class PostController extends Controller
 		$post = Post::latest()->take(10)->paginate(5);
 		return view('posts.index', ["post" => $post]);
 	}
+	
+	public function show($post_id){
+		$post = Post::find($post_id);
+		return view('posts.show', ["post" => $post]);
+	}
 }
