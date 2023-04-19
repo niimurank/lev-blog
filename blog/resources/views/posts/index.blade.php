@@ -15,6 +15,7 @@
 	    <div class="card m-5 p-2">
             <h4 class="card-title">{{$post1->title}}</h4>
 	    <p class="card-text">{{$post1->body}}</p>
+	    <a href="{{ route('posts.show',['post_id'=>$post1->id]) }} class="btn btn-primary">詳細</a>
 	    </div>
 	    @endforeach
 	    <div class="pagination">
