@@ -13,7 +13,7 @@
             <div class="">
                 <h4 class="header">{{$post->title}}</h4>
                 <p class="art">{{$post->body}}</p>
-                <a href=" {{ url('/') }}">
+                <a href=" {{ url('/posts') }}">
                     <button type="button">投稿一覧へ戻る</button>
                 </a>
             </div>
