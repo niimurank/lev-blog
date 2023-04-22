@@ -11,20 +11,20 @@
     <body>
         <h2 class="title text-center">ブログの名前</h2>
         <div class="container">
-        <form>
-        @csrf
+        <form method="POST" action="/posts">
+            @csrf
             <fieldset>
                 <label class="">タイトル</label>
-                <input type=text class="form-control" name="title" id="title">
+                <input type=text class="form-control" name="post[title]" id="title">
                 <label class="">本文</label>
-                <textarea class="form-control" name="body" id="body"></textarea>
+                <textarea class="form-control" name="post[body]" id="body"></textarea>
                 <div class="text-start">
-                    <a href=" {{ url('/posts') }}">
+                    <a href="{{ route('posts.index') }}">
                         <button type="button" class="btn btn-primary">投稿一覧へ戻る</button>
                     </a>
                 </div>
                 <div class="text-end">
-                    <a href="">
+                    <a>
                         <button type="submit" class="btn btn-success">登録</button>
                     </a>
                 </div>

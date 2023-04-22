@@ -24,7 +24,9 @@
 	        </div>
 	    </div>
 	    @endforeach
-	    
+	    <a href=' {{ route('posts.create') }}'>
+	    	<button type="button" class="btn btn-primary">作成</button>
+	    </a>
 	    <div class="paginate">
 	    	{{ $posts->links() }}
 	    </div>
