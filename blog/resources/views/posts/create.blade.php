@@ -15,9 +15,15 @@
             @csrf
             <fieldset>
                 <label class="">タイトル</label>
-                <input type=text class="form-control" name="post[title]" id="title">
+                <input type=text class="form-control" name="post[title]" id="title" value="{{old('post.title')}}">
+                <p class="text-danger fw-bold">
+                    {{ $errors->first('post.title') }}
+                </p>
                 <label class="">本文</label>
-                <textarea class="form-control" name="post[body]" id="body"></textarea>
+                <textarea class="form-control" name="post[body]" id="body">{{ old('post.body') }}</textarea>
+                <p class="text-danger fw-bold">
+                    {{ $errors->first('post.body') }}
+                </p>
                 <div class="text-start">
                     <a href="{{ route('posts.index') }}">
                         <button type="button" class="btn btn-primary">投稿一覧へ戻る</button>
