@@ -15,7 +15,7 @@
                 <h4 class="card-header text-center">{{$post->title}}</h4>
                 <p class="card-body">{{$post->body}}</p>
             </div>
-            <div class="text-end">
+            <div class="text-start">
                 <a href=" {{ url('/posts') }}">
                     <button type="button" class="btn btn-primary justify-right" >投稿一覧へ戻る</button>
                 </a>
