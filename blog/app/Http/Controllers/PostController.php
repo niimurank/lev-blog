@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 class PostController extends Controller
 {
@@ -10,13 +11,23 @@ class PostController extends Controller
 	{
 		    return $post->get();//$postの中身を戻り値にする。
 	}
-	public function index(){
-		$post = Post::latest()->take(10)->paginate(5);
-		return view('posts.index', ["post" => $post]);
+	public function index(Post $post){
+		return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
+	}
+	public function show(Post $post)
+	{
+		return view('posts/show')->with(['post'=>$post]);
+	}
+	public function create()
+	{
+		return view('posts.create');
 	}
 	
-	public function show($post_id){
-		$post = Post::find($post_id);
-		return view('posts.show', ["post" => $post]);
+	public function store(PostRequest $request, Post $post)
+	{
+		$input = $request['post'];
+		
+		$post->fill($input)->save();
+		return redirect('/posts/' . $post->id);
 	}
 }

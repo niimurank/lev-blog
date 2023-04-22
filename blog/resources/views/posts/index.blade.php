@@ -9,17 +9,26 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <head>
 <body>
-    <h2 class="title">ブログの名前</h2>
+    <h2 class="text-center">ブログの名前</h2>
     <div class="container">
-	    @foreach ($post as $post1)
-	    <div class="card m-5 p-2">
-            <h4 class="card-title">{{$post1->title}}</h4>
-	    <p class="card-text">{{$post1->body}}</p>
-	    <a href="{{ route('posts.show',['post_id'=>$post1->id]) }} class="btn btn-primary">詳細</a>
+    @foreach ($posts as $post)
+	    <div class="card m-5">
+	    	<h4 class="text-center card-header">{{$post->title}}</h4>
+	    	<div class="card-body">
+	            <p class="card-text">{{$post->body}}</p4>
+	                <div class="text-end">
+	                    <a href="/posts/{{ $post->id}}" class="btn btn-primary">
+	                        <button type="button" class="btn btn-primary">詳細</button>
+	                    </a>
+	                </div>
+	        </div>
 	    </div>
 	    @endforeach
-	    <div class="pagination">
-	    {{ $post->links() }}
+	    <a href=' {{ route('posts.create') }}'>
+	    	<button type="button" class="btn btn-primary">作成</button>
+	    </a>
+	    <div class="paginate">
+	    	{{ $posts->links() }}
 	    </div>
     </div>
 </body>
