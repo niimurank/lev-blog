@@ -11,16 +11,23 @@
 <body>
     <h2 class="text-center">ブログの名前</h2>
     <div class="container">
-    @foreach ($posts as $post)
+    	@foreach ($posts as $post)
 	    <div class="card m-5">
 	    	<h4 class="text-center card-header">{{$post->title}}</h4>
 	    	<div class="card-body">
 	            <p class="card-text">{{$post->body}}</p4>
-	                <div class="text-end">
-	                    <a href="/posts/{{ $post->id}}" class="btn btn-primary">
-	                        <button type="button" class="btn btn-primary">詳細</button>
-	                    </a>
-	                </div>
+	            <div class="row">
+	            <div class="col">
+	                <a href="{{ route('posts.edit',[$post->id]) }}">
+	            	    <button type="button" class="btn btn-secondary">編集</button>
+	            	</a>
+	            </div>
+	            <div class="col text-end">
+	                <a href="/posts/{{ $post->id}}" class="btn btn-primary">
+	                    <button type="button" class="btn btn-primary">詳細</button>
+	                </a>
+	            </div>
+	            </div>
 	        </div>
 	    </div>
 	    @endforeach
