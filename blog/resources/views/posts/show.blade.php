@@ -15,10 +15,17 @@
                 <h4 class="card-header text-center">{{$post->title}}</h4>
                 <p class="card-body">{{$post->body}}</p>
             </div>
-            <div class="text-start">
-                <a href=" {{ url('/posts') }}">
-                    <button type="button" class="btn btn-primary justify-right" >投稿一覧へ戻る</button>
-                </a>
+            <div class="row">
+                <div class="col text-start">
+                    <a href=" {{ url('/posts') }}">
+                        <button type="button" class="btn btn-primary justify-right" >投稿一覧へ戻る</button>
+                    </a>
+                </div>
+                <div class="col text-end">
+                    <a href=' {{ route('posts.edit' ,[$post->id]) }} '>
+                        <button type="button" class="btn btn-secondary justify-right">編集を行う</button>
+                    </a>
+                </div>
             </div>
         </div>
     </body>
