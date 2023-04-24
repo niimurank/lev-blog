@@ -11,8 +11,9 @@
     <body>
         <h2 class="text-center">ブログの名前</h2>
         <div class="container">
-        <form method="POST" action="/posts">
+        <form method="POST" action="/posts/{{ $post->id }}">
             @csrf
+            @method('PUT')
             <fieldset>
                 <label class="">タイトル</label>
                 <input type=text class="form-control" name="post[title]" id="title" value="{{ $post->title }}">
@@ -32,7 +33,7 @@
                     </div>
                     <div class="col text-end">
                         <a>
-                            <button type="submit" class="btn btn-success">登録</button>
+                            <button type="submit" class="btn btn-success">上書き保存</button>
                         </a>
                     </div>
                 </div>

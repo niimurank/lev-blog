@@ -11,7 +11,7 @@
     <body>
         <h2 class="title text-center">ブログの名前</h2>
         <div class="container">
-        <form method="POST" action="/posts">
+        <form method="POST" action="{{ route('posts.store', $post->id)}}">
             @csrf
             <fieldset>
                 <label class="">タイトル</label>
