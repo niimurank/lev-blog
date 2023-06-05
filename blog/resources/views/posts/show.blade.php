@@ -12,6 +12,7 @@
             <div class="card m-5">
                 <h4 class="card-header text-center">{{$post->title}}</h4>
                 <p class="card-body">{{$post->body}}</p>
+                <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
             </div>
             <div class="row">
                 <div class="col text-start">
